@@ -55,6 +55,7 @@ class MyTheme {
 
 
     textTheme: const TextTheme(
+      // the add task bar  and editTask bar
       headline5: TextStyle(
         color: Colors.black ,
         fontSize: 20 ,
@@ -74,6 +75,12 @@ class MyTheme {
       headline3: TextStyle(
           color: Colors.black ,
           fontSize: 14 ,
+
+      ) ,
+      //app bar of Edit screen
+      headline2: TextStyle(
+        color: Colors.white ,
+        fontSize: 24 ,
 
       ) ,
 

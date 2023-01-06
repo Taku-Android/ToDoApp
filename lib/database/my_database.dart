@@ -63,6 +63,29 @@ class MyDataBase{
   }
 
 
+  static void markAsDone(Task task){
+
+    if(task.isDone){
+      task.isDone = false;
+      getTasksCollection()
+          .doc(task.id)
+          .set(task);
+    }else {
+      task.isDone = true;
+      getTasksCollection()
+          .doc(task.id)
+          .set(task);
+    }
+  }
+
+  static void editTask(Task task){
+
+      getTasksCollection()
+          .doc(task.id)
+          .set(task);
+
+  }
+
 
 
 }

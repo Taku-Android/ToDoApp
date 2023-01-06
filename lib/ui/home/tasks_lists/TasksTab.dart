@@ -3,6 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:calendar_timeline/calendar_timeline.dart';
 import 'package:todo_app/database/my_database.dart';
 import 'package:todo_app/database/task.dart';
+import 'package:todo_app/ui/home/tasks_lists/edit_task_screen.dart';
+import 'package:todo_app/ui/home/tasks_lists/edit_task_sheet.dart';
 import 'package:todo_app/ui/home/tasks_lists/task_item.dart';
 
 class TasksTab extends StatefulWidget {
@@ -15,6 +17,8 @@ class TasksTab extends StatefulWidget {
 class _TasksTabState extends State<TasksTab> {
   //List<Task> tasks = [];
 
+  var selectedDate = DateTime.now();
+
   @override
   Widget build(BuildContext context) {
 
@@ -24,29 +28,27 @@ class _TasksTabState extends State<TasksTab> {
     }
      */
 
-    var selectedDate = DateTime.now();
-
     return Container(
       child: Column(children: [
         CalendarTimeline(
           initialDate: selectedDate,
           firstDate: DateTime.now().subtract(Duration(days: 365)),
-          lastDate: DateTime.now().add(Duration(days: 365)),
-          onDateSelected: (date) {
+          lastDate:DateTime.now().add(Duration(days: 365)),
+          onDateSelected:  (date) =>  {
             setState(() {
               selectedDate = date ;
-            });
+            })
           },
-          leftMargin: 15,
-          monthColor: Colors.black,
+          leftMargin: 20,
+          monthColor:  Colors.black,
           dayColor: Colors.black,
           activeDayColor: Theme.of(context).primaryColor,
           activeBackgroundDayColor: Colors.white,
           dotsColor: Theme.of(context).primaryColor,
           selectableDayPredicate: (date) => true,
           locale: 'en',
-
         ),
+
 
         Expanded(
             child: StreamBuilder<QuerySnapshot<Task>>(
@@ -63,7 +65,8 @@ class _TasksTabState extends State<TasksTab> {
                       snapshot.data!.docs.map((doc) => doc.data()).toList();
                   return ListView.separated(
                     itemBuilder: (_, index) {
-                      return TaskItem(tasks[index]);
+                      return
+                        TaskItem(tasks[index]);
                     },
                     separatorBuilder: (context, index) => SizedBox(
                       height: 1,
@@ -109,4 +112,14 @@ class _TasksTabState extends State<TasksTab> {
 
    */
 
+
+  void showEditTaskBottomSheet(Task task){
+
+    showModalBottomSheet(context: context, builder: (buildContext){
+
+      return EditTaskSheet(task);
+
+    });
+
+}
 }

@@ -3,7 +3,8 @@ class DateUtils{
 
   static DateTime extractDateOnly(DateTime dateTime){
 
-    return DateTime(dateTime.year ,
+    return DateTime(
+        dateTime.year ,
       dateTime.month ,
       dateTime.day
     );
