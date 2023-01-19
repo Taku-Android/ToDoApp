@@ -51,7 +51,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
 
                 decoration: BoxDecoration(
                     borderRadius: BorderRadius.circular(20),
-                    color: Colors.white),
+                    color: Theme.of(context).bottomAppBarColor),
                 child: SingleChildScrollView(
                   child: Column(
                     children: [
@@ -69,6 +69,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                             Container(
                               margin: const EdgeInsets.all(20),
                               child: TextFormField(
+                                style: Theme.of(context).textTheme.headline6,
                                 //controller: titleController,
                                 initialValue: widget.task.title,
                                 onChanged: (value) {
@@ -84,6 +85,7 @@ class _EditTaskScreenState extends State<EditTaskScreen> {
                               margin: const EdgeInsets.only(
                                   left: 20, right: 20, bottom: 20),
                               child: TextFormField(
+                                style: Theme.of(context).textTheme.headline6,
                                 //controller: descController,
                                 initialValue: widget.task.description,
                                 onChanged: (value) {

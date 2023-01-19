@@ -56,10 +56,12 @@ class _TaskItemState extends State<TaskItem> {
             ],
           ),
           child: Container(
+
             height: 90,
             padding: EdgeInsets.all(12),
             decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(18), color: Colors.white),
+                borderRadius: BorderRadius.circular(18),
+                color: Theme.of(context).bottomAppBarColor),
             child: Row(
               children: [
                 Container(
@@ -108,7 +110,7 @@ class _TaskItemState extends State<TaskItem> {
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         color: widget.task.isDone
-                            ? Colors.white
+                            ? Theme.of(context).bottomAppBarColor
                             : Theme.of(context).primaryColor),
                     child: widget.task.isDone
                         ? Text(

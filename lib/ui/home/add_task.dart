@@ -35,6 +35,7 @@ class _AddTaskState extends State<AddTask> {
           Container(
             margin: const EdgeInsets.all(20),
             child: TextFormField(
+              style: Theme.of(context).textTheme.headline6,
               controller: titleController,
               validator: (input) {
                 if (input == null || input.trim().isEmpty) {
@@ -50,6 +51,7 @@ class _AddTaskState extends State<AddTask> {
           Container(
             margin: const EdgeInsets.only(left: 20, right: 20, bottom: 20),
             child: TextFormField(
+              style: Theme.of(context).textTheme.headline6,
               controller: descController,
               validator: (input) {
                 if (input == null || input.isEmpty) {
